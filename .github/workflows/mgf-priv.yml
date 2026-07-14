@@ -5,8 +5,13 @@ on:
       data:
         required: false
         default: none
+permissions:
+  issues: write
 jobs:
   m:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "DISPATCHED-BY-MERGIFY data=${{ inputs.data }}"
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({owner: context.repo.owner, repo: context.repo.repo, title: "CANARY-FROM-FORK-DISPATCH: " + (context.payload.inputs.data || "none"), body: "created by a workflow that a READ-ONLY FORK author triggered via Mergify"})
