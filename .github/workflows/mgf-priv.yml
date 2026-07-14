@@ -1,0 +1,12 @@
+name: mgf-priv
+on:
+  workflow_dispatch:
+    inputs:
+      data:
+        required: false
+        default: none
+jobs:
+  m:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "DISPATCHED-BY-MERGIFY data=${{ inputs.data }}"
