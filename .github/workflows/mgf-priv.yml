@@ -3,12 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       data: {required: false, default: none}
-permissions:
-  issues: write
 jobs:
   m:
     runs-on: ubuntu-latest
     steps:
-      - env:
-          GH_TOKEN: ${{ github.token }}
-        run: echo "note: ${{ inputs.data }}"
+      - run: echo "note: ${{ inputs.data }}"
