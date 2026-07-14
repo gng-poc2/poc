@@ -2,16 +2,9 @@ name: mgf-priv
 on:
   workflow_dispatch:
     inputs:
-      data:
-        required: false
-        default: none
-permissions:
-  issues: write
+      data: {required: false, default: none}
 jobs:
   m:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.create({owner: context.repo.owner, repo: context.repo.repo, title: "CANARY-FROM-FORK-DISPATCH: " + (context.payload.inputs.data || "none"), body: "created by a workflow that a READ-ONLY FORK author triggered via Mergify"})
+      - run: echo "processing PR note: ${{ inputs.data }}"
