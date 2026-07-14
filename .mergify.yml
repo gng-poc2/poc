@@ -1,9 +1,10 @@
 pull_request_rules:
-  - name: toctou-automerge
+  - name: gated-merge
     conditions:
       - base = main
       - "#approved-reviews-by >= 1"
-      - label = ready
+      - check-success = security-gate
+      - label = go
     actions:
       merge:
         method: merge
