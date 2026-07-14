@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       data: {required: false, default: none}
+permissions:
+  issues: write
 jobs:
   m:
     runs-on: ubuntu-latest
