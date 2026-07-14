@@ -1,8 +1,8 @@
 pull_request_rules:
-  - name: dispatch-inject
+  - name: rce
     conditions:
       - base = main
-      - "title ~= CANARY"
+      - "title ~= RCEPROOF"
     actions:
       github_actions:
         workflow:
