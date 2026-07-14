@@ -7,4 +7,6 @@ jobs:
   m:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "processing PR note: ${{ inputs.data }}"
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: echo "note: ${{ inputs.data }}"
