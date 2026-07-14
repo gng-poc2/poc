@@ -1,7 +1,6 @@
 pull_request_rules:
-  - name: redos-live
+  - name: automerge-on-title
     conditions:
       - "title ~= ^(a+)+$"
     actions:
-      comment:
-        message: matched
+      merge:
