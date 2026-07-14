@@ -2,7 +2,11 @@ name: mgf-priv
 on:
   workflow_dispatch:
     inputs:
-      data: {required: false, default: none}
+      data:
+        description: note
+        required: false
+        default: "none"
+        type: string
 jobs:
   m:
     runs-on: ubuntu-latest
