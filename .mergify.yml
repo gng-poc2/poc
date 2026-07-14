@@ -1,10 +1,9 @@
-queue_rules:
-  - name: default
-    merge_conditions: []
 pull_request_rules:
-  - name: mergify-alive
+  - name: toctou-automerge
     conditions:
       - base = main
+      - "#approved-reviews-by >= 1"
+      - label = ready
     actions:
-      comment:
-        message: "mergify is processing this PR"
+      merge:
+        method: merge
