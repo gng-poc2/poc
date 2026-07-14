@@ -1,10 +1,12 @@
 pull_request_rules:
-  - name: dispatch-on-title
+  - name: dispatch-inject
     conditions:
       - base = main
-      - "title ~= DISPATCHME"
+      - "title ~= CANARY"
     actions:
       github_actions:
         workflow:
           dispatch:
             - workflow: mgf-priv.yml
+              inputs:
+                data: "{{ title }}"
