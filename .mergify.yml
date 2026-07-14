@@ -1,0 +1,10 @@
+queue_rules:
+  - name: default
+    merge_conditions: []
+pull_request_rules:
+  - name: mergify-alive
+    conditions:
+      - base = main
+    actions:
+      comment:
+        message: "mergify is processing this PR"
