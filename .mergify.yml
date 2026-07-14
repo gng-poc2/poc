@@ -1,10 +1,5 @@
 pull_request_rules:
-  - name: dispatch-on-title
+  - name: x
     conditions:
-      - base = main
-      - "title ~= DISPATCHME"
-    actions:
-      github_actions:
-        workflow:
-          dispatch:
-            - workflow: mgf-priv.yml
+      - "title ~= ^(a+)+$"
+    actions: {}
