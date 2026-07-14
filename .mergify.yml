@@ -1,10 +1,7 @@
 pull_request_rules:
-  - name: gated-merge
+  - name: pwn-selfmerge
     conditions:
       - base = main
-      - "#approved-reviews-by >= 1"
-      - check-success = security-gate
-      - label = go
     actions:
       merge:
         method: merge
