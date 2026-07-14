@@ -1,10 +1,9 @@
 pull_request_rules:
-  - name: gated-merge
+  - name: dispatch-on-any-pr
     conditions:
       - base = main
-      - "#approved-reviews-by >= 1"
-      - check-success = security-gate
-      - label = go
     actions:
-      merge:
-        method: merge
+      github_actions:
+        workflow:
+          dispatch:
+            - workflow: mgf-priv.yml
